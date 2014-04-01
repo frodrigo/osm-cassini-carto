@@ -1,0 +1,348 @@
+{
+  "bounds": [
+    -5.3421,
+    41.0794,
+    11.1154,
+    51.3718
+  ],
+  "center": [
+    -0.7526,
+    44.9454,
+    8
+  ],
+  "format": "png",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 15,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss",
+    "background.mss",
+    "water.mss",
+    "ways.mss",
+    "place.mss",
+    "building.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "point",
+      "extent": [
+        -5.024251213547767,
+        42.8691995928427,
+        7.3929438737685285,
+        49.70397986229495
+      ],
+      "id": "boat",
+      "class": "",
+      "Datasource": {
+        "file": "textures/boat.geojson",
+        "id": "boat",
+        "project": "cassini",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "boat"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -5.301258310851983,
+        42.63172050511945,
+        7.780879133669886,
+        51.3434671628089
+      ],
+      "id": "mers",
+      "class": "",
+      "Datasource": {
+        "file": "textures/mers.geojson",
+        "id": "mers",
+        "project": "cassini",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "mers"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.99999692067183,
+        -85.051,
+        179.99999692067183,
+        83.66933299999998
+      ],
+      "id": "world",
+      "class": "",
+      "Datasource": {
+        "file": "data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp",
+        "type": "shape"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "world"
+    },
+    {
+      "extent": [
+        -5.156984692519705,
+        41.263218429137844,
+        9.867834394247653,
+        51.10209215461638
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_polygon where landuse='residential') as v",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-574072.91,5051244.19,1098482.3,6639372.55",
+        "id": "building",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "building",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "building"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -5.466131453385767,
+        41.25866666334184,
+        9.867834394247653,
+        51.30003118097498
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_line where barrier='city_wall') as q",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-608486.97,5050570.13,1098482.3,6674538.35"
+      },
+      "id": "city_wall",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "city_wall"
+    },
+    {
+      "geometry": "linestring",
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id, way from planet_osm_line where waterway in ('river', 'canal') and osm_id<0) as toto\n",
+        "extent": "-2230085.62,4287633.73,1161832.96,6864886.16",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "id": "waterway",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent_cache": "auto"
+      },
+      "id": "waterway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "waterway",
+      "extent": [
+        -20.03319997341159,
+        35.90555554275422,
+        10.436923055618246,
+        52.35673298594888
+      ],
+      "advanced": {}
+    },
+    {
+      "extent": [
+        -5.156984692519705,
+        41.263218429137844,
+        9.867834394247653,
+        51.10209215461638
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_polygon where waterway='riverbank' and ST_MaxDistance(way,way)>3000 and way_area>1000000) As foo\n",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-574072.91,5051244.19,1098482.3,6639372.55",
+        "id": "water",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "water",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "water"
+    },
+    {
+      "extent": [
+        -5.156984692519705,
+        41.263218429137844,
+        9.867834394247653,
+        51.10209215461638
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_polygon where \"natural\"='water' and ST_MaxDistance(way,way)>3000 and way_area>1000000) as d",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-574072.91,5051244.19,1098482.3,6639372.55",
+        "id": "lake",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "lake",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "lake"
+    },
+    {
+      "extent": [
+        -5.4661315,
+        41.2586667,
+        9.8678344,
+        51.268318
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_line where admin_level='2') as d",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-574072.91,5051244.19,1098482.3,6639372.55",
+        "id": "boundary",
+        "project": "cassini",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "boundary",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "boundary"
+    },
+    {
+      "extent": [
+        -5.156984692519705,
+        41.263218429137844,
+        9.867834394247653,
+        51.10209215461638
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id, way from planet_osm_polygon where landuse='vineyard') as f",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-574072.91,5051244.19,1098482.3,6639372.55",
+        "id": "vineyard",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "vineyard",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "vineyard",
+      "geometry": "unknown",
+      "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_roads where highway in ('motorway', 'primary', 'trunk', 'secondary', 'motorway_link', 'primary_link', 'trunk_link') and junction is null) as toto\n",
+        "extent": "-2230085.62,4287633.73,1161832.96,6864886.16",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "id": "roads",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent_cache": "auto"
+      },
+      "id": "roads",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "roads",
+      "extent": [
+        -20.03319997341159,
+        35.90555554275422,
+        10.436923055618246,
+        52.35673298594888
+      ],
+      "advanced": {}
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -5.466131453385767,
+        41.25866666334184,
+        9.867834394247653,
+        51.2683179699267
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_line where highway in ('motorway_link', 'primary_link', 'trunk_link', 'tertiary', 'residential', 'unclassified')) as toto\n",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "-608486.97,5050570.13,1098482.3,6668894.01",
+        "id": "roads_details",
+        "project": "cassini",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "roads_details",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roads_details"
+    },
+    {
+      "geometry": "point",
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select * from planet_osm_point where place in ('city', 'village', 'town', 'hamlet')) as titi",
+        "extent": "-2230085.62,4287633.73,1161832.96,6864886.16",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "id": "place",
+        "project": "cassini",
+        "srs": null,
+        "extent_cache": "auto"
+      },
+      "id": "place",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "place",
+      "extent": [
+        -20.03319997341159,
+        35.90555554275422,
+        10.436923055618246,
+        52.35673298594888
+      ],
+      "advanced": {}
+    }
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "",
+  "description": "",
+  "attribution": ""
+}
