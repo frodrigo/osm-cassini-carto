@@ -35,13 +35,15 @@
       "id": "boat",
       "class": "",
       "Datasource": {
+        "type": "ogr",
+        "layer": "OGRGeoJSON",
         "file": "textures/boat.geojson",
         "id": "boat",
         "project": "cassini",
         "srs": ""
       },
-      "srs-name": "autodetect",
-      "srs": "",
+      "srs-name": "4326",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "boat"
     },
@@ -56,13 +58,15 @@
       "id": "mers",
       "class": "",
       "Datasource": {
+        "type": "ogr",
+        "layer": "OGRGeoJSON",
         "file": "textures/mers.geojson",
         "id": "mers",
         "project": "cassini",
         "srs": ""
       },
-      "srs-name": "autodetect",
-      "srs": "",
+      "srs-name": "4326",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "mers"
     },
